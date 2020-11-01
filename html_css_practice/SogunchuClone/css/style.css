@@ -1,0 +1,29 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+h1.logo {
+  display: inline;
+}
+h1.logo a:hover {
+  color: #009;
+}
+span.logo2 {
+  font-size: 70%;
+  color: #aaa;
+  font-weight: 700;
+}
+p.hint {
+  color: lightcoral;
+  font-size: 80%;
+}
+div.bottom {
+  height: 200px;
+}
+.inputShort {
+  width: 2.5em;
+}
+.icon {
+  width: 2em;
+  height: 2em;
+}

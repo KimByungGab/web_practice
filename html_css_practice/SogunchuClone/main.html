@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소군추: 소녀전선 군수지원 추천기 - 효율 최적화 계산기</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./script/practice.js"></script>
+</head>
+<body>
+    <h1 class="logo">
+        <a href="./main.html">소군추 v1.14</a>
+    </h1>
+    <span class="logo2">소녀전선 군수 추천기</span>
+    <form method="POST" action="/sogunchu/index.jsp">
+        <h2>전역</h2>
+        <li>
+            어느 전역까지 열었어요? 
+            <select name="openMax">
+                <option value="1">1전역</option>
+                <option value="2">2전역</option>
+                <option value="3">3전역</option>
+                <option value="4">4전역</option>
+                <option value="5">5전역</option>
+                <option value="6">6전역</option>
+                <option value="7">7전역</option>
+                <option value="8">8전역</option>
+                <option value="9">9전역</option>
+                <option value="10">10전역</option>
+                <option value="11">11전역</option>
+                <option value="12">12전역</option>
+                <option value="13">13전역</option>
+            </select>
+        </li>
+        <li>
+            0전역을 열었나요?
+            <input type="radio" name="openZero" id="openZero1" value="1" checked="checked">
+            <label for="openZero1">네</label>
+            <input type="radio" name="openZero" id="openZero0" value="0">
+            <label for="openZero0">아니오</label>
+        </li>
+        <h2>딜레이</h2>
+        <li>
+            군수가 끝나고 다시 돌리는 데 
+            <input type="number" name="delay" class="inputShort" value="20" size="5">
+            분 걸림
+        </li>
+        <p class="hint">20분으로 지정하면 1시간짜리 군수를 1시간 20분마다 돌렸다고 계산</p>
+        <h2>시간제한</h2>
+        <li>
+            <input type="number" name="timeMin" class="inputShort" value="2">시간 이상
+            <input type="number" name="timeMax" class="inputShort" value="24">시간 이하
+        </li>
+        <h2>최적화 비율</h2>
+        <li>
+            <img src="./image/i1.png" alt="인력" class="icon">
+            <input type="number" name="weight[0]" class="inputShort" value="1">
+            <label for="weight[0]">     </label>
+            <img src="./image/i2.png" alt="인력" class="icon">
+            <input type="number" name="weight[1]" class="inputShort" value="5">
+            <label for="weight[1]">     </label>
+            <img src="./image/i3.png" alt="인력" class="icon">
+            <input type="number" name="weight[2]" class="inputShort" value="3">
+            <label for="weight[2]">     </label>
+            <img src="./image/i4.png" alt="인력" class="icon">
+            <input type="number" name="weight[3]" class="inputShort" value="1">
+        </li>
+        <p class="hint">입력 비율에 근접하게 최대한 많은 자원을 얻는 조합을 최적화. 인부 상관없이 탄식을 2:1로 얻고 싶으면 0:2:1:0 입력.</p>
+        <h2>특수획득 가중치</h2>
+        <li>
+            <input type="radio" name="extraType" id="extraType0" value="0" checked="checked">
+            <label for="extraType0">없음 </label>
+            <input type="radio" name="extraType" id="extraType1" value="1">
+            <img src="./image/e1.png" alt="쾌속수복" class="icon">
+            <input type="radio" name="extraType" id="extraType2" value="2">
+            <img src="./image/e2.png" alt="쾌속제조" class="icon">
+            <input type="radio" name="extraType" id="extraType3" value="3">
+            <img src="./image/e3.png" alt="인형제조" class="icon">
+            <input type="radio" name="extraType" id="extraType4" value="4">
+            <img src="./image/e4.png" alt="장비제조" class="icon">
+            <input type="radio" name="extraType" id="extraType5" value="5">
+            <img src="./image/e5.png" alt="구매토큰" class="icon">
+        </li>
+        <li>
+            "특수획득 가중치: "
+            <input type="radio" name="extraWeight" id="extraWeight0" value="0" checked="checked">
+            <label for="extraWeight0">낮음 </label>
+            <input type="radio" name="extraWeight" id="extraWeight1" value="0" checked="checked">
+            <label for="extraWeight1">중간 </label>
+            <input type="radio" name="extraWeight" id="extraWeight2" value="0" checked="checked">
+            <label for="extraWeight2">높음 </label>
+        </li>
+        <p class="hint">자원효율이 약간 떨어지더라도 쾌속수복, 쾌속제조, 인형제조, 장비제조, 구매토큰 등의 특수획득에 가중치를 부여</p>
+        <h2>고고</h2>
+        <input type="button" value="자, 추천해줘" class="submitButton" onclick="incomplete()">
+    </form>
+    <div class="bottom"></div>
+</body>
+</html>
