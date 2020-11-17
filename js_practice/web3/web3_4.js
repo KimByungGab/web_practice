@@ -232,3 +232,81 @@ console.log(window.gender);     // man
 // if (!(this instanceof arguments.callee))
 // arguments.callee가 곧 호출된 함수를 가리킨다.
 // 이와 같이 하면, 특정 함수 이름과 상관없이 패턴을 공통으로 사용하는 모듈을 작성할 수 있다는 장점이 있다.
+
+//==================================
+// apply() 메소드를 이용한 명시적인 this 바인딩
+
+function Person(name, age, gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+}
+
+var foo = {};
+
+Person.apply(foo, ['foo', 30, 'man']);
+console.dir(foo);
+
+// apply를 call로 바꾸면 이렇게 된다.
+Person.call(foo, 'foo', 30, 'man');
+
+//==================================
+// apply() 메소드를 활용한 arguments 객체의 뱅려 표준 메소드 slice() 활용
+
+function myFunction() {
+    console.dir(arguments);
+
+    // arguments.shift();  // 에러 발생
+
+    var args = Array.prototype.slice.apply(arguments);
+    console.dir(args);
+}
+
+myFunction(1, 2, 3);
+
+//==================================
+// slice() 메소드 사용 예제
+
+var arrA = [1, 2, 3];
+var arrB = arrA.slice(0);       // [1, 2, 3]
+var arrC = arrA.slice();        // [1, 2, 3]
+var arrD = arrA.slice(1);       // [2, 3]
+var arrE = arrA.slice(1, 2);    // [2]
+
+//==================================
+// return 문 없는 일반 함수의 리턴값 확인
+
+var noReturnFunc = function() {
+    console.log('This function has no return statement.');
+}
+
+var result = noReturnFunc();
+console.log(result);        // undefined
+
+//==================================
+// 생성자 함수에서 명시적으로 객체를 리턴했을 경우
+
+function Person_2(name, age, gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+
+    return {name:'bar', age:20, gender:'woman'};
+}
+
+var foo = new Person_2('foo', 30, 'man');
+console.dir(foo);
+
+//==================================
+// 생성자 함수에서 명시적으로 기본 타입(불린, 숫자, 문자열) 값을 리턴했을 경우
+
+function Person_3(name, age, gender) {
+    this.name = name;
+    this.age = age;
+    this.gender
+
+    return 100;
+}
+
+var foo = new Person_3('foo', 30, 'man');
+console.log(foo);
