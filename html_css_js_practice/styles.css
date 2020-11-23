@@ -1,0 +1,40 @@
+body {
+  padding: 20px;
+  background-color: #333333;
+}
+span.banner {
+  position: relative;
+  display: block;
+  width: 728px;
+  height: 176px;
+  border: 1px solid #555;
+  background: url(./final-fantasy-icon.png) no-repeat -40px 220px;
+  transition: background-position 0.2s ease-in 0.2s;
+}
+span.banner:hover,
+span.banner:focus {
+  background-position: -40px 20px;
+}
+span.banner .banner-logo {
+  position: absolute;
+  top: 20px;
+  left: 270px;
+}
+span.banner .banner-logo,
+span.banner .banner-logo {
+  left: 540px;
+}
+span.banner .banner-desc {
+  opacity: 0;
+  position: absolute;
+  top: 35px;
+  left: 170px;
+  color: #4ec1cd;
+}
+span.banner:hover .banner-desc,
+span.banner:focus .banner-desc {
+  opacity: 1;
+}
+span.banner strong {
+  font-size: 23px;
+}
