@@ -1,0 +1,39 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+  border-style: solid;
+}
+nav {
+  background-color: pink;
+  border-style: solid;
+}
+h1.title {
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+#list_raw {
+  text-align: center;
+}
+.list {
+  background-color: powderblue;
+  display: block;
+}
+#listContent {
+  width: 90%;
+  height: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.add__list {
+  margin-left: 43%;
+  margin-top: 12px;
+  display: block;
+}
+.list__bottom {
+  background-color: powderblue;
+  height: 12px;
+  display: block;
+}
